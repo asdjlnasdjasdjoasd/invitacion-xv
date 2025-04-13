@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Invitación a mis XV Años</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+      color: #003049;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .invitacion {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 550px;
+      animation: aparecer 2s ease-in-out;
+      z-index: 2;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #0077b6;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 15px 0;
+    }
+
+    button {
+      background: #0077b6;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.3);
+      transition: all 0.4s ease;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    .mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #219ebc;
+      display: none;
+    }
+
+    /* Estrellas animadas */
+    .estrella {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: parpadeo 2s infinite ease-in-out;
+    }
+
+    @keyframes parpadeo {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="invitacion">
+    <h1>Mis XV Años</h1>
+    <p>¡Estás cordialmente invitado a una noche mágica para celebrar mis quinceaños!</p>
+    <p><strong>Fecha:</strong> 15 de junio de 2025</p>
+    <p><strong>Hora:</strong> 7:00 PM</p>
+    <p><strong>Lugar:</strong> Salón de Eventos "Estrella Azul"</p>
+    <p>Por favor confirma tu asistencia:</p>
+    <button onclick="confirmarAsistencia()">Confirmar Asistencia</button>
+    <div class="mensaje" id="mensaje">¡Gracias por confirmar! 💙</div>
+  </div>
+
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/28/audio_4576c37f08.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Estrellitas -->
+  <script>
+    function confirmarAsistencia() {
+      document.getElementById('mensaje').style.display = 'block';
+    }
+
+    // Crear estrellitas aleatorias
+    for (let i = 0; i < 50; i++) {
+      let estrella = document.createElement("div");
+      estrella.classList.add("estrella");
+      estrella.style.top = Math.random() * 100 + "vh";
+      estrella.style.left = Math.random() * 100 + "vw";
+      estrella.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(estrella);
+    }
+  </script>
+</body>
+</html>
+
+
